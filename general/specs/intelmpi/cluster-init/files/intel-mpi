@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## Intel MPI modulefile
+##
+## 
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tload Intel MPI\n"
+}
+
+module-whatis	"load Intel MPI environment"
+
+
+prepend-path MANPATH /opt/intel/compilers_and_libraries_2016.3.223/linux/mpi/man
+prepend-path LD_LIBRARY_PATH /opt/intel/compilers_and_libraries_2016.3.223/linux/mpi/intel64/lib
+prepend-path PATH /opt/intel/compilers_and_libraries_2016.3.223/linux/mpi/intel64/bin
+setenv I_MPI_ROOT /opt/intel/compilers_and_libraries_2016.3.223/linux/mpi    
