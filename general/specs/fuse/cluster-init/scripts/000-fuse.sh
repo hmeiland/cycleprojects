@@ -6,11 +6,8 @@ sudo yum -y install blobfuse
 fi
 
 if [ -f /etc/debian_version ]; then
-#wget http://security.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls26_2.12.23-12ubuntu2.8_amd64.deb
-#wget http://security.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2ubuntu4.5_amd64.deb
 wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
-#sudo dpkg -i libgnutls26_2.12.23-12ubuntu2.8_amd64.deb libgcrypt11_1.5.3-2ubuntu4.5_amd64.deb
 sudo apt-get update
 sudo apt-get install -y blobfuse
 fi
