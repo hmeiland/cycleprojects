@@ -1,3 +1,14 @@
 #!/bin/bash
 
-yum -y install environment-modules.x86_64
+setenforce 0
+
+
+if [ -f /etc/redhat-release ]; then
+# install modules environment through yum
+   yum -y install environment-modules.x86_64
+fi
+
+
+if [ -f /etc/debian_version ]; then
+   sudo apt-get -y install environment-modules
+fi
