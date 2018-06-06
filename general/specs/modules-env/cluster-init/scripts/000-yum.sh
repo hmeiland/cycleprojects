@@ -11,4 +11,6 @@ fi
 
 if [ -f /etc/debian_version ]; then
    sudo apt-get -y install environment-modules
+   #make sure to allow MPI on Ubuntu
+   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 fi
