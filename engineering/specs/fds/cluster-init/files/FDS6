@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+###
+### FDS6 modulefile
+###
+proc ModulesHelp { } {
+	puts stderr "\tAdds FDS bin location to your PATH environment variable"
+}
+
+module-whatis   "Loads fds paths and libraries."
+
+conflict FDS6
+conflict openmpi
+
+prepend-path    PATH            /shared/bin/opt/FDS/FDS6/bin
+prepend-path    LD_LIBRARY_PATH /shared/bin/opt/FDS/FDS6/bin/LIB64
+prepend-path    LD_LIBRARY_PATH /usr/lib64
