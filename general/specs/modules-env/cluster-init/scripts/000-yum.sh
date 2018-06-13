@@ -6,6 +6,7 @@ setenforce 0
 if [ -f /etc/redhat-release ]; then
 # install modules environment through yum
    yum -y install environment-modules.x86_64
+   exit 0
 fi
 
 
