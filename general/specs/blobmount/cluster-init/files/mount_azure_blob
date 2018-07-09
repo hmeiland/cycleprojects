@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# export account and key
+export AZURE_STORAGE_ACCOUNT="<account_name>"
+export AZURE_STORAGE_ACCESS_KEY="<account_password>" 
+
+# prep cache dir
+mkdir -p /mnt/resource/blobfusetmp/<container_name>
+
+# prep mount point
+mkdir ./<container_name>
+
+# mount
+blobfuse ./<container_name> --tmp-path=/mnt/resource/blobfusetmp/<container_name>  --container-name=<container_name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 -o allow_other

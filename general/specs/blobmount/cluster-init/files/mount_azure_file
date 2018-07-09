@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# please fill the three variables below on the final script
+
+sudo mkdir -p /mnt/azure_file/<share_name>
+
+sudo mount -t cifs //<storage_account>.file.core.windows.net/<share_name> /mnt/azure_file/<share_name> -o vers=3.0,username=<storage_account>,password=<storage_key>,dir_mode=0777,file_mode=0777
+
+sudo chmod 755 /mnt/azure_file/<share_name>
