@@ -13,10 +13,14 @@ sudo apt-get install -y blobfuse
 fi
 
 
+if [ ! -d /mnt/resource/blobfusetmp ]; then
 sudo mkdir -p /mnt/resource/blobfusetmp
+fi
 sudo chmod 777 /mnt/resource/blobfusetmp
 
+if [ ! -d /etc/blobfuse ]; then
 sudo mkdir /etc/blobfuse
+fi
 sudo cat >/etc/blobfuse/fuse_connection.cfg <<EOF
 accountName myaccount
 accountKey myaccesskey==
@@ -25,7 +29,12 @@ EOF
 
 chmod 755 /etc/blobfuse/fuse_connection.cfg
 
+if [ ! -d /mnt/azurecontainer ]; then
 sudo mkdir /mnt/azurecontainer
+fi
 sudo chmod 777 /mnt/azurecontainer
 
+if [ -f /etc/fuse.conf ]; then
+sed -i 's/#user_allow_other/user_allow_other/g' /etc/fuse.conf
+fi
 #blobfuse /mnt/azurecontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/etc/blobfuse/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
